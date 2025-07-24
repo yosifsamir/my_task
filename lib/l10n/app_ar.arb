@@ -1,0 +1,7 @@
+{
+  "helloWorld": "مرحبا في العالم",
+  "@helloWorld": {
+    "description": "التحية"
+  },
+  "usersPage" : "صفحة المستخمين"
+}

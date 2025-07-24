@@ -1,0 +1,13 @@
+- add "Flutter_localizations" package
+    "
+      flutter_localizations:
+        sdk: flutter
+
+      intl: ^0.19.0
+    "
+- then import
+    import 'package:flutter_localizations/flutter_localizations.dart';
+- After introducing the flutter_localizations package and adding the previous code,
+  the "Material" and "Cupertino" packages should now be correctly localized in one of
+  the 115 supported locales. Widgets should be adapted to the localized messages,
+  along with correct left-to-right or right-to-left layout.
