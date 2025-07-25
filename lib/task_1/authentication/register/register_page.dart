@@ -133,6 +133,17 @@ class _RegisterBodyState extends State<_RegisterBody> {
                       ),
                     ),
                   ),
+                ),
+
+                Container(
+                  height: 400,
+                  width: double.infinity,
+                  color: Colors.deepPurple,
+                ),
+                Container(
+                  height: 247,
+                  width: double.infinity,
+                  color: Colors.red,
                 )
               ],
             ),

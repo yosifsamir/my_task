@@ -46,6 +46,8 @@ dependencies:
   bloc: ^9.0.0
   floor: ^1.5.0
   flutter_bloc: ^9.1.1
+  device_preview:
+  responsive_framework: ^1.5.1
 
 
 dev_dependencies:
