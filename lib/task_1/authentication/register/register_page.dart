@@ -6,6 +6,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 // TODO: add localization
 class RegisterPage extends StatelessWidget {
+  static String routeName = '/RegisterPage';
+
   const RegisterPage({super.key});
 
   @override
@@ -45,6 +47,7 @@ class _RegisterBodyState extends State<_RegisterBody> {
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) => const AnimePage(),
+              settings: RouteSettings(name: AnimePage.routeName),
             ),
           );
         }
@@ -77,7 +80,7 @@ class _RegisterBodyState extends State<_RegisterBody> {
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                           borderSide:
-                          const BorderSide(color: Colors.blue, width: 2)),
+                              const BorderSide(color: Colors.blue, width: 2)),
                       fillColor: Colors.white,
                       filled: true),
                 ),
@@ -98,7 +101,7 @@ class _RegisterBodyState extends State<_RegisterBody> {
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                           borderSide:
-                          const BorderSide(color: Colors.blue, width: 2)),
+                              const BorderSide(color: Colors.blue, width: 2)),
                       fillColor: Colors.white,
                       filled: true),
                 ),
@@ -134,7 +137,6 @@ class _RegisterBodyState extends State<_RegisterBody> {
                     ),
                   ),
                 ),
-
                 Container(
                   height: 400,
                   width: double.infinity,

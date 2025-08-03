@@ -2,12 +2,15 @@ import 'package:MyTask/core/network/dio.dart';
 import 'package:MyTask/di/task_get_it.dart';
 import 'package:MyTask/task_1/anime/data/model/anime_character.dart';
 import 'package:MyTask/task_1/anime/domain/anime_repository.dart';
+import 'package:MyTask/test_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'data/repository/anime_repository_impl.dart';
 
 class AnimePage extends StatefulWidget {
+  static String routeName = '/AnimePage';
+
   const AnimePage({super.key});
 
   @override
@@ -22,7 +25,7 @@ class _AnimePageState extends State<AnimePage> {
   void initState() {
     _animeRepository = AnimeRepositoryImpl(dioClient: getIt<DioClient>());
     _animeRepository.getAllAnime().then(
-      (value) {
+          (value) {
         characters.addAll(value);
         setState(() {
 
@@ -39,28 +42,40 @@ class _AnimePageState extends State<AnimePage> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(AppLocalizations.of(context)!.helloWorld, style: TextStyle(fontSize: 24),),
+          Text(AppLocalizations.of(context)!.helloWorld,
+            style: TextStyle(fontSize: 24),),
           Expanded(
             child: ListView.builder(
               itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      CircleAvatar(
-                        backgroundImage: NetworkImage(
-                          characters[index].images?.first ?? "",
-                        )
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const TestPage(),
+                        settings: RouteSettings(name: TestPage.routeName),
                       ),
-                      const SizedBox(
-                        width: 16,
-                      ),
-                      Text(
-                        characters[index].name ?? "",
-                        style: const TextStyle(fontSize: 20 , color: Colors.blue),
-                      ),
-                    ],
+                    );
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        CircleAvatar(
+                            backgroundImage: NetworkImage(
+                              characters[index].images?.first ?? "",
+                            )
+                        ),
+                        const SizedBox(
+                          width: 16,
+                        ),
+                        Text(
+                          characters[index].name ?? "",
+                          style: const TextStyle(
+                              fontSize: 20, color: Colors.blue),
+                        ),
+                      ],
+                    ),
                   ),
                 );
               },

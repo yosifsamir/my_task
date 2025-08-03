@@ -1,9 +1,11 @@
 import 'package:MyTask/task_1/authentication/register/register_page.dart';
+import 'package:MyTask/test_page.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
+import 'core/constants/theme.dart';
 import 'di/task_get_it.dart';
 
 Future<void> main() async {
@@ -25,10 +27,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      // theme: ThemeData(
+      //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      //   useMaterial3: true,
+      // ),
+      theme: lightTheme(),
+
+      // darkTheme: darkTheme(),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       locale: const Locale('en'),
@@ -82,6 +87,7 @@ class MyApp extends StatelessWidget {
     switch (routeName) {
       case '/':
         return const RegisterPage();
+        // return const TestPage();
     // Add other routes here as needed
     // case '/login': return const LoginPage();
       default:
